@@ -390,7 +390,7 @@ Inicialmente, criaremos um **database** no **Glue Data Catalog** para organizar 
     === "Powershell"
         Crie um arquivo `db.json` com o seguinte conteúdo:
 
-        ```json
+        ```json { .copy }
         {
             "Name": "meu-db-olistasd",
             "Description": "Database de exemplo para Glue com base Olist",
@@ -414,7 +414,7 @@ Inicialmente, criaremos um **database** no **Glue Data Catalog** para organizar 
     === "CMD"
         Crie um arquivo `db.json` com o seguinte conteúdo:
 
-        ```json
+        ```json { .copy }
         {
             "Name": "meu-db-olistasd",
             "Description": "Database de exemplo para Glue com base Olist",
@@ -446,18 +446,18 @@ Agora precisamos criar uma **role IAM** para o **Glue** ter permissão de ler os
     Crie os arquivos `glue_etl_crawler_s3_role.json` e `glue_etl_crawler_s3_policy.json`
 
     ??? "`glue_etl_crawler_s3_role.json`"
-        ```json
+        ```json { .copy }
         {
-            "Version": "2012-10-17",
-            "Statement": [
+          "Version": "2012-10-17",
+          "Statement": [
             {
-                "Effect": "Allow",
-                "Principal": {
+              "Effect": "Allow",
+              "Principal": {
                 "Service": "glue.amazonaws.com"
-                },
-                "Action": "sts:AssumeRole"
+              },
+              "Action": "sts:AssumeRole"
             }
-            ]
+          ]
         }
         ```
 
@@ -465,106 +465,106 @@ Agora precisamos criar uma **role IAM** para o **Glue** ter permissão de ler os
         Atualize o arquivo `glue_etl_crawler_s3_policy.json`, substituindo `meu-data-lake-xxx` pelo nome do seu *bucket* criado anteriormente.
 
     ??? "`glue_etl_crawler_s3_policy.json`"
-        ```json
+        ```json { .copy }
         {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                "Effect": "Allow",
-                "Action": [
-                    "glue:*",
-                    "s3:GetBucketLocation",
-                    "s3:ListBucket",
-                    "s3:ListAllMyBuckets",
-                    "s3:GetBucketAcl",
-                    "ec2:DescribeVpcEndpoints",
-                    "ec2:DescribeRouteTables",
-                    "ec2:CreateNetworkInterface",
-                    "ec2:DeleteNetworkInterface",
-                    "ec2:DescribeNetworkInterfaces",
-                    "ec2:DescribeSecurityGroups",
-                    "ec2:DescribeSubnets",
-                    "ec2:DescribeVpcAttribute",
-                    "iam:ListRolePolicies",
-                    "iam:GetRole",
-                    "iam:GetRolePolicy",
-                    "cloudwatch:PutMetricData"
-                ],
-                "Resource": "*"
-                },
-                {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:CreateBucket"
-                ],
-                "Resource": [
-                    "arn:aws:s3:::aws-glue-*"
-                ]
-                },
-                {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:GetObject",
-                    "s3:PutObject",
-                    "s3:DeleteObject"
-                ],
-                "Resource": [
-                    "arn:aws:s3:::aws-glue-*/*",
-                    "arn:aws:s3:::*/*aws-glue-*/*"
-                ]
-                },
-                {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:GetObject"
-                ],
-                "Resource": [
-                    "arn:aws:s3:::crawler-public*",
-                    "arn:aws:s3:::aws-glue-*"
-                ]
-                },
-                {
-                "Effect": "Allow",
-                "Action": [
-                    "logs:CreateLogGroup",
-                    "logs:CreateLogStream",
-                    "logs:PutLogEvents"
-                ],
-                "Resource": [
-                    "arn:aws:logs:*:*:*:/aws-glue/*"
-                ]
-                },
-                {
-                "Effect": "Allow",
-                "Action": [
-                    "ec2:CreateTags",
-                    "ec2:DeleteTags"
-                ],
-                "Condition": {
-                    "ForAllValues:StringEquals": {
-                    "aws:TagKeys": [
-                        "aws-glue-service-resource"
-                    ]
-                    }
-                },
-                "Resource": [
-                    "arn:aws:ec2:*:*:network-interface/*",
-                    "arn:aws:ec2:*:*:security-group/*",
-                    "arn:aws:ec2:*:*:instance/*"
-                ]
-                },
-                {
-                "Effect": "Allow",
-                "Action": [
-                    "s3:GetObject",
-                    "s3:PutObject"
-                ],
-                "Resource": [
-                    "arn:aws:s3:::meu-data-lake-xxx/*"
-                ]
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "glue:*",
+                "s3:GetBucketLocation",
+                "s3:ListBucket",
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketAcl",
+                "ec2:DescribeVpcEndpoints",
+                "ec2:DescribeRouteTables",
+                "ec2:CreateNetworkInterface",
+                "ec2:DeleteNetworkInterface",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcAttribute",
+                "iam:ListRolePolicies",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "cloudwatch:PutMetricData"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:CreateBucket"
+              ],
+              "Resource": [
+                "arn:aws:s3:::aws-glue-*"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+              ],
+              "Resource": [
+                "arn:aws:s3:::aws-glue-*/*",
+                "arn:aws:s3:::*/*aws-glue-*/*"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject"
+              ],
+              "Resource": [
+                "arn:aws:s3:::crawler-public*",
+                "arn:aws:s3:::aws-glue-*"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": [
+                "arn:aws:logs:*:*:*:/aws-glue/*"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "ec2:CreateTags",
+                "ec2:DeleteTags"
+              ],
+              "Condition": {
+                "ForAllValues:StringEquals": {
+                  "aws:TagKeys": [
+                    "aws-glue-service-resource"
+                  ]
                 }
-            ]
+              },
+              "Resource": [
+                "arn:aws:ec2:*:*:network-interface/*",
+                "arn:aws:ec2:*:*:security-group/*",
+                "arn:aws:ec2:*:*:instance/*"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject"
+              ],
+              "Resource": [
+                "arn:aws:s3:::meu-data-lake-xxx/*"
+              ]
             }
+          ]
+        }
         ```
 
         Analise a política e liste algumas permissões concedidas.
@@ -700,7 +700,7 @@ No editor de consultas, teste algumas consultas envolvendo as duas tabelas.
 
     Por exemplo: `s3://meu-data-lake-<INSPER_USERNAME>/athena-results/`
 
-```sql
+```sql { .copy }
 SELECT COUNT(*) AS qtde_itens_vendidos,
       SUM(price) AS vlr_total_vendido
 FROM olist_order_items;
@@ -722,7 +722,7 @@ Pronto! Desta maneira, conseguimos catalogar e consultar dados **brutos** no **S
         - `olist_order_items`: 112650 linhas
         - `olist_products`: 32951 linhas
 
-        ```sql
+        ```sql { .copy }
         SELECT COUNT(*) FROM olist_order_items; -- 112650
         SELECT COUNT(*) FROM olist_products; -- 32951
         ```
@@ -731,7 +731,7 @@ Pronto! Desta maneira, conseguimos catalogar e consultar dados **brutos** no **S
     Quais as cinco categorias de produtos mais vendidas (maior quantidade de itens vendidos)?
 
     !!! answer "Resposta"
-        ```sql
+        ```sql { .copy }
         SELECT p.product_category_name, COUNT(*) AS qtde_itens_vendidos
         FROM olist_order_items oi
         JOIN olist_products p ON oi.product_id = p.product_id
@@ -815,8 +815,6 @@ As **sources** representam as fontes de dados de entrada que o **job** irá proc
 
     **S3 Target Location**: `s3://meu-data-lake-<INSPER_USERNAME>/processed/order-items/`
 
-    ![](glue-etl-job-filter.png)
-
 !!! exercise
     Na aba **Job details**, selecione a **IAM role** criada anteriormente.
 
@@ -882,7 +880,7 @@ Este é o grafo que representa o fluxo de dados do **job**:
     No **Athena**, consulte a nova tabela que contém o resultado do **JOIN**.
 
     !!! answer "Resposta"
-        ```sql
+        ```sql { .copy }
         SELECT COUNT(*) FROM order_items_products;
         ```
 

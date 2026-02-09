@@ -58,12 +58,73 @@ nav:
       - 09 - Data Lakes:
           - classes/09-data-lakes/intro-data-lakes.md
           - classes/09-data-lakes/aws-glue.md
+      - 10 - Data Lakehouse:
+          - classes/10-data-lakehouse/intro-data-lakehouse.md
+          - classes/10-data-lakehouse/minio.md
+          - classes/10-data-lakehouse/iceberg.md
+          - classes/10-data-lakehouse/trino.md
+          - classes/10-data-lakehouse/references.md
+      - 11 - Observabilidade:
+          - classes/11-observability/intro-observability.md
+          - classes/11-observability/prometheus.md
+          - classes/11-observability/grafana.md
+          - classes/11-observability/logging.md
+          - classes/11-observability/tracing.md
+          - classes/11-observability/references.md
+      - 12 - Orquestração:
+          - Parte I:
+              - classes/12-orchestration-airflow/intro-airflow.md
+              - classes/12-orchestration-airflow/pratica-airflow.md
+          - Parte II:
+              - classes/12-orchestration-airflow/airflow-emr.md
+      - 13 - Databricks:
+          - Parte I:
+              - classes/13-databricks/intro-paas.md
+              - classes/13-databricks/intro-databricks.md
+              - classes/13-databricks/databricks-pratica.md
+          - Parte II:
+              - classes/13-databricks/databricks-aws-setup.md
+              - classes/13-databricks/databricks-etl.md
+      - 14 - Entrevista 02:
+          - classes/14-interview02/int02.md
+      - 15 - SGBDR - Performance:
+          - Parte I:
+              - classes/15-query-opt/intro.md
+              - classes/15-query-opt/config-db.md
+              - classes/15-query-opt/tpcb.md
+              - classes/15-query-opt/intro-indexes.md
+              - classes/15-query-opt/pratica-indexes.md
+          - Parte II:
+              - classes/15-query-opt/indexes-views-subqueries.md
+              - classes/15-query-opt/pg-read-replica.md
+          - Parte III:
+              - classes/15-query-opt/api.md
+      - 16 - System Design:
+          - classes/16-system-design/intro-system-design.md
+          - classes/16-system-design/framework.md
+          - classes/16-system-design/references.md
+      - 17 - Entrevista 03:
+          - classes/17-interview03/pre-interview1.md
+          - classes/17-interview03/pre-interview2.md
+          - classes/17-interview03/int03.md
+          - classes/17-interview03/references.md
   - Entrevistas:
-      - classes/08-interview-01/int01.md
+      - 08 - Entrevista 01:
+          - classes/08-interview-01/faq.md
+          - classes/08-interview-01/int01.md
+      - 14 - Entrevista 02:
+          - classes/14-interview02/int02.md
+      - 17 - Entrevista 03:
+          - classes/17-interview03/pre-interview1.md
+          - classes/17-interview03/pre-interview2.md
+          - classes/17-interview03/int03.md
+          - classes/17-interview03/references.md
+  - APS:
+      - aps/aps01/aps01.md
+  - Projeto: project/project.md
   - Regras: about.md
   - Deadlines: deadlines.md
   - Contribuições: contributions.md
-  # - Projeto: project/project.md
 
 extra:
   home_cover_image: attachments/home-image.png

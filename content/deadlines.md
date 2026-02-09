@@ -6,6 +6,6 @@ O prazo considera o final do dia (*23:59:59*), a menos que especificado de outra
 
 | Data de Início | Atividade                                              | Prazo    |
 |----------------|--------------------------------------------------------|----------|
-<!-- | 05-Ago         | [Aps01](classes/01-intro/aps01_part_1.md)              | 15-Ago   |
-| 13-Ago         | [Aps02](classes/03-batch/aps02_sql.md)                 | 27-Ago   |
-| 04-Set         | [Aps03](classes/07-lambda/sa_lambda_function.md)       | 06-Out   | -->
+| Out-10         | [Aps01](aps/aps01/aps01.md)                            | Nov-04   |
+| Out-22         | [Projeto](project/project.md)                          | Nov-30   |
+| Nov-26         | [Interview 03](classes/17-interview03/int03.md)                | Dez-03   |
